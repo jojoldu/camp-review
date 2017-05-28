@@ -1,6 +1,8 @@
 package com.jojoldu.domain.camp;
 
+import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Projections;
+import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 
 import java.util.List;
@@ -24,9 +26,22 @@ public class CampRepositoryImpl implements CampRepositoryCustom {
     @Override
     public List<Camp> findAllLikeName(String name) {
         return queryFactory
-                .select(Projections.bean(Camp.class))
+                .select(Projections.fields(
+                        Camp.class,
+                        camp.name,
+                        camp.address,
+                        camp.phoneNumber
+                ))
                 .from(camp)
-                .where(camp.name.like("%"+name+"%"))
+                .where(likeName(name))
                 .fetch();
+    }
+
+    private BooleanExpression likeName(String name){
+        if(name == null){
+            return null;
+        }
+
+        return camp.name.like("%"+name+"%");
     }
 }
