@@ -1,8 +1,10 @@
 package com.jojoldu.domain.course;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.jojoldu.domain.camp.Camp;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 
 /**
  * Created by jojoldu@gmail.com on 2017. 5. 27.
@@ -10,6 +12,8 @@ import javax.persistence.Id;
  * Github : http://github.com/jojoldu
  */
 
+@NoArgsConstructor
+@Getter
 @Entity
 public class Course {
 
@@ -17,5 +21,13 @@ public class Course {
     @GeneratedValue
     private Long id;
 
+    @Column(nullable = false)
+    private String title;
+
+
+
+    @ManyToOne
+    @JoinColumn(name = "camp_id", foreignKey = @ForeignKey(name = "FK_COURSE_CAMP"))
+    private Camp camp;
 
 }

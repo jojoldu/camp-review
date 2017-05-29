@@ -1,4 +1,6 @@
-package com.jojoldu.domain.camp;
+package com.jojoldu.domain.camp.repository;
+
+import com.jojoldu.domain.camp.Camp;
 
 import java.util.List;
 
