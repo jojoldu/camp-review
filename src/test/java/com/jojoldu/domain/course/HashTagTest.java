@@ -8,6 +8,6 @@ import org.junit.Test;
  * Github : https://github.com/jojoldu
  */
 
-public class LanguageTest {
+public class HashTagTest {
 
 }
