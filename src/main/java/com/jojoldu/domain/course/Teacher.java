@@ -1,6 +1,6 @@
-package com.jojoldu.domain.teacher;
+package com.jojoldu.domain.course;
 
-import com.jojoldu.domain.course.Course;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -15,6 +15,11 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Entity
+@Table(
+        uniqueConstraints = {
+            @UniqueConstraint(name = "UNI_TEACHER_NAME", columnNames = {"name"})
+        }
+)
 public class Teacher {
 
     @Id
@@ -30,8 +35,10 @@ public class Teacher {
     @Column
     private String imageUrl;
 
-    @ManyToOne
-    @JoinColumn(name = "course_id", foreignKey = @ForeignKey(name="FK_TEACHER_COURSE"))
-    private Course course;
-
+    @Builder
+    public Teacher(String name, String profile, String imageUrl) {
+        this.name = name;
+        this.profile = profile;
+        this.imageUrl = imageUrl;
+    }
 }

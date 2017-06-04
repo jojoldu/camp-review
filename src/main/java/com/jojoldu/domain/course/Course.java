@@ -2,7 +2,7 @@ package com.jojoldu.domain.course;
 
 import com.jojoldu.common.EnumType;
 import com.jojoldu.domain.camp.Camp;
-import com.jojoldu.domain.teacher.Teacher;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -25,7 +25,7 @@ public class Course {
     @GeneratedValue
     private Long id;
 
-    @Column
+    @Column(nullable = false)
     @Enumerated(javax.persistence.EnumType.STRING)
     private Type type;
 
@@ -35,15 +35,34 @@ public class Course {
     @Column(nullable = false)
     private String description;
 
-    @Column(nullable = false)
+    @Column
     private String imageUrl;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "camp_id", foreignKey = @ForeignKey(name = "FK_COURSE_CAMP"))
     private Camp camp;
 
-    @OneToMany(mappedBy = "course")
-    private List<Teacher> teachers = new ArrayList<>();
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    private List<CourseTeacherMap> teachers = new ArrayList<>();
+
+    @Builder
+    public Course(Type type, String title, String description, String imageUrl, Camp camp) {
+        this.type = type;
+        this.title = title;
+        this.description = description;
+        this.imageUrl = imageUrl;
+        this.camp = camp;
+    }
+
+    public void addTeachers(List<Teacher> teachers) {
+        for (Teacher teacher : teachers) {
+            addTeacher(teacher);
+        }
+    }
+
+    public void addTeacher(Teacher teacher){
+        teachers.add(new CourseTeacherMap(this, teacher));
+    }
 
     public enum Type implements EnumType {
         WEB("웹 개발"),
