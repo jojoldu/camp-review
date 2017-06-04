@@ -2,6 +2,8 @@ package com.jojoldu.domain.course.repository;
 
 import com.jojoldu.domain.course.Course;
 import com.jojoldu.domain.course.Teacher;
+import com.jojoldu.domain.review.Review;
+import com.jojoldu.domain.review.ReviewRepository;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,8 +31,13 @@ public class CourseRepositoryTest {
     @Autowired
     private TeacherRepository teacherRepository;
 
+    @Autowired
+    private ReviewRepository reviewRepository;
+
     @After
     public void cleanAll () {
+        reviewRepository.deleteAll();
+        teacherRepository.deleteAll();
         courseRepository.deleteAll();
     }
 
@@ -51,5 +58,29 @@ public class CourseRepositoryTest {
 
         //then
         assertThat(savedCourse.getTeachers().size(), is(1));
+    }
+
+    @Test
+    @Transactional
+    public void Course조회하면_review가_조회된다() throws Exception {
+        //given
+        Course course = courseRepository.save(Course.builder()
+                .type(Course.Type.WEB)
+                .title("자바웹캠프")
+                .description("자바 과정")
+                .build());
+
+        Review review = reviewRepository.save(new Review(4.5, "최고에요"));
+
+        //when
+        course.addReview(review);
+        Course savedCourse = courseRepository.findAll().get(0);
+
+        //then
+        assertThat(savedCourse.getReviews().size(), is(1));
+        assertThat(savedCourse.getReviews().get(0).getStar(), is(4.5));
+
+
+
     }
 }

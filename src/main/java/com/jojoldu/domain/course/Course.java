@@ -2,6 +2,7 @@ package com.jojoldu.domain.course;
 
 import com.jojoldu.common.EnumType;
 import com.jojoldu.domain.camp.Camp;
+import com.jojoldu.domain.review.Review;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,6 +46,9 @@ public class Course {
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     private List<CourseTeacherMap> teachers = new ArrayList<>();
 
+    @OneToMany(mappedBy = "course")
+    private List<Review> reviews = new ArrayList<>();
+
     @Builder
     public Course(Type type, String title, String description, String imageUrl, Camp camp) {
         this.type = type;
@@ -62,6 +66,17 @@ public class Course {
 
     public void addTeacher(Teacher teacher){
         teachers.add(new CourseTeacherMap(this, teacher));
+    }
+
+    public void addReviews(List<Review> reviews){
+        for (Review review : reviews) {
+            addReview(review);
+        }
+    }
+
+    public void addReview(Review review) {
+        reviews.add(review);
+        review.updateCourse(this);
     }
 
     public enum Type implements EnumType {
