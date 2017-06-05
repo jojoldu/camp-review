@@ -2,6 +2,7 @@
 /build/
 !gradle/wrapper/gradle-wrapper.jar
 src/main/generated
+src/main/resources/client.yml
 
 ### STS ###
 .apt_generated
@@ -24,3 +25,4 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+

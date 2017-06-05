@@ -2,3 +2,26 @@ spring:
   profiles:
     active: local
 
+---
+spring:
+  profiles: local
+
+  h2:
+    console.enabled: true
+    console.path: /h2-console #접속 URL -> jdbc:h2:mem:testdb, ID:sa, PW: (EMPTY)
+    console.settings.trace: false
+
+  jpa:
+    database-platform: H2
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+server:
+  port: 8080
+
+---
+
+spring:
+  profiles: real
+server:
+  port: 8080
