@@ -31,5 +31,6 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         OAuth2Authentication oAuth2Authentication = (OAuth2Authentication) authentication;
         Object details = oAuth2Authentication.getDetails();
 
+        response.sendRedirect("/");
     }
 }

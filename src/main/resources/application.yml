@@ -5,6 +5,9 @@ spring:
 ---
 spring:
   profiles: local
+  output:
+    ansi:
+      enabled: always
 
   h2:
     console.enabled: true
@@ -16,6 +19,11 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create-drop
+
+logging:
+  level:
+    org.hibernate.type: trace
+
 server:
   port: 8080
 

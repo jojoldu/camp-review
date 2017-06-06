@@ -14,6 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class MainController {
 
+    @GetMapping("/")
+    public String index(){
+        return "index";
+    }
+
     @GetMapping("/me")
     @ResponseBody
     public Object me(OAuth2Authentication oAuth2Authentication) {
