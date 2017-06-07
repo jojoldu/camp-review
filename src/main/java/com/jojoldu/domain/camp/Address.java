@@ -1,5 +1,6 @@
 package com.jojoldu.domain.camp;
 
+import com.jojoldu.domain.common.BaseEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -14,7 +15,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Address {
+public class Address extends BaseEntity {
 
     @Id
     @GeneratedValue

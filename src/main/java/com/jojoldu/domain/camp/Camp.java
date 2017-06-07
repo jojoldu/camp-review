@@ -1,5 +1,6 @@
 package com.jojoldu.domain.camp;
 
+import com.jojoldu.domain.common.BaseEntity;
 import com.jojoldu.domain.course.Course;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,7 +21,7 @@ import static javax.persistence.CascadeType.ALL;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Camp {
+public class Camp extends BaseEntity {
 
     @Id
     @GeneratedValue

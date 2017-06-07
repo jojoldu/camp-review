@@ -1,5 +1,6 @@
 package com.jojoldu.domain.course;
 
+import com.jojoldu.domain.common.BaseEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +21,7 @@ import javax.persistence.*;
             @UniqueConstraint(name = "UNI_TEACHER_NAME", columnNames = {"name"})
         }
 )
-public class Teacher {
+public class Teacher extends BaseEntity {
 
     @Id
     @GeneratedValue

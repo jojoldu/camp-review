@@ -2,6 +2,7 @@ package com.jojoldu.domain.course;
 
 import com.jojoldu.common.EnumType;
 import com.jojoldu.domain.camp.Camp;
+import com.jojoldu.domain.common.BaseEntity;
 import com.jojoldu.domain.review.Review;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,7 +21,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Entity
-public class Course {
+public class Course extends BaseEntity {
 
     @Id
     @GeneratedValue
