@@ -1,4 +1,4 @@
-package com.jojoldu.oauth.domain;
+package com.jojoldu.oauth.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

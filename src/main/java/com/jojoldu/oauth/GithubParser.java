@@ -1,8 +1,7 @@
 package com.jojoldu.oauth;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jojoldu.oauth.domain.Github;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.jojoldu.oauth.pojo.Github;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.stereotype.Component;
@@ -25,8 +24,7 @@ public class GithubParser {
     public Github parse(Authentication authentication){
         OAuth2Authentication oAuth2Authentication = (OAuth2Authentication) authentication;
         Object details = oAuth2Authentication.getUserAuthentication().getDetails();
-        Github github = objectMapper.convertValue(details, Github.class);
 
-        return github;
+        return objectMapper.convertValue(details, Github.class);
     }
 }

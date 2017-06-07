@@ -2,7 +2,7 @@ package com.jojoldu.oauth;
 
 import com.jojoldu.domain.member.Member;
 import com.jojoldu.domain.member.MemberRepository;
-import com.jojoldu.oauth.domain.Github;
+import com.jojoldu.oauth.pojo.Github;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;

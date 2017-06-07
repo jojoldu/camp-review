@@ -2,8 +2,7 @@ package com.jojoldu.web;
 
 import com.jojoldu.domain.member.MemberRepository;
 import com.jojoldu.oauth.GithubParser;
-import com.jojoldu.oauth.domain.Github;
-import net.bytebuddy.asm.Advice;
+import com.jojoldu.oauth.pojo.Github;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.stereotype.Controller;
