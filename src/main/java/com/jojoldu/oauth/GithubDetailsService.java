@@ -1,7 +1,7 @@
 package com.jojoldu.oauth;
 
-import com.jojoldu.oauth.domain.Member;
-import com.jojoldu.oauth.domain.MemberRepository;
+import com.jojoldu.domain.member.Member;
+import com.jojoldu.domain.member.MemberRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

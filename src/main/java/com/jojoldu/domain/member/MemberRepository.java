@@ -1,4 +1,4 @@
-package com.jojoldu.oauth.domain;
+package com.jojoldu.domain.member;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

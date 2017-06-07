@@ -1,5 +1,10 @@
 package com.jojoldu.web;
 
+import com.jojoldu.domain.member.MemberRepository;
+import com.jojoldu.oauth.GithubParser;
+import com.jojoldu.oauth.domain.Github;
+import net.bytebuddy.asm.Advice;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +19,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class MainController {
 
+    @Autowired
+    private MemberRepository memberRepository;
+
+    @Autowired
+    private GithubParser githubParser;
+
     @GetMapping("/")
     public String index(){
         return "index";
@@ -25,6 +36,7 @@ public class MainController {
         if(oAuth2Authentication == null) {
             return "redirect:/";
         }
-        return oAuth2Authentication.getUserAuthentication().getDetails();
+        Github github = githubParser.parse(oAuth2Authentication);
+        return memberRepository.findByEmail(github.getEmail());
     }
 }

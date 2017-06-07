@@ -1,6 +1,6 @@
 package com.jojoldu.oauth;
 
-import com.jojoldu.oauth.domain.Member;
+import com.jojoldu.domain.member.Member;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
