@@ -24,7 +24,6 @@ public class CourseTeacherMap {
     @JoinColumn(name = "course_id", foreignKey = @ForeignKey(name = "FK_COURSE_TEACHER_MAP_COURSE"))
     private Course course;
 
-
     @ManyToOne
     @JoinColumn(name = "teacher_id", foreignKey = @ForeignKey(name = "FK_COURSE_TEACHER_MAP_TEACHER"))
     private Teacher teacher;

@@ -3,6 +3,8 @@ package com.jojoldu.domain.course;
 import com.jojoldu.common.EnumType;
 import com.jojoldu.domain.camp.Camp;
 import com.jojoldu.domain.common.BaseEntity;
+import com.jojoldu.domain.hashtag.HashTag;
+import com.jojoldu.domain.hashtag.HashTagCourseMap;
 import com.jojoldu.domain.review.Review;
 import lombok.Builder;
 import lombok.Getter;
@@ -32,7 +34,7 @@ public class Course extends BaseEntity {
     private Type type;
 
     @Column(nullable = false)
-    private String title;
+    private String title; // Camp와 title을 조합하여 유니크한지 체크가 필요
 
     @Column(nullable = false)
     private String description;
@@ -46,6 +48,9 @@ public class Course extends BaseEntity {
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     private List<CourseTeacherMap> teachers = new ArrayList<>();
+
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    private List<HashTagCourseMap> hashTags = new ArrayList<>();
 
     @OneToMany(mappedBy = "course")
     private List<Review> reviews = new ArrayList<>();
@@ -67,6 +72,10 @@ public class Course extends BaseEntity {
 
     public void addTeacher(Teacher teacher){
         teachers.add(new CourseTeacherMap(this, teacher));
+    }
+
+    public void addHashTag(HashTag hashTag){
+        hashTags.add(new HashTagCourseMap(this, hashTag));
     }
 
     public void addReviews(List<Review> reviews){
