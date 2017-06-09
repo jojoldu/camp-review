@@ -36,7 +36,7 @@ public class Course extends BaseEntity {
     @Column(nullable = false)
     private String title; // Camp와 title을 조합하여 유니크한지 체크가 필요
 
-    @Column(nullable = false)
+    @Column
     private String description;
 
     @Column
