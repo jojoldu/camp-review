@@ -47,9 +47,6 @@ public class Course extends BaseEntity {
     private Camp camp;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
-    private List<CourseTeacherMap> teachers = new ArrayList<>();
-
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     private List<HashTagCourseMap> hashTags = new ArrayList<>();
 
     @OneToMany(mappedBy = "course")
@@ -62,16 +59,6 @@ public class Course extends BaseEntity {
         this.description = description;
         this.imageUrl = imageUrl;
         this.camp = camp;
-    }
-
-    public void addTeachers(List<Teacher> teachers) {
-        for (Teacher teacher : teachers) {
-            addTeacher(teacher);
-        }
-    }
-
-    public void addTeacher(Teacher teacher){
-        teachers.add(new CourseTeacherMap(this, teacher));
     }
 
     public void addHashTag(HashTag hashTag){

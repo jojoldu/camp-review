@@ -43,25 +43,6 @@ public class CourseRepositoryTest {
 
     @Test
     @Transactional
-    public void course를_가져오면_teacher도_가져온다 () throws Exception {
-        //given
-        Teacher teacher = teacherRepository.save(Teacher.builder().name("창천향로").build());
-        Course course = courseRepository.save(Course.builder()
-                .type(Course.Type.WEB)
-                .title("자바웹캠프")
-                .description("자바 과정")
-                .build());
-
-        //when
-        course.addTeacher(teacher);
-        Course savedCourse = courseRepository.findAll().get(0);
-
-        //then
-        assertThat(savedCourse.getTeachers().size(), is(1));
-    }
-
-    @Test
-    @Transactional
     public void Course조회하면_review가_조회된다() throws Exception {
         //given
         Course course = courseRepository.save(Course.builder()

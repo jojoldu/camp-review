@@ -12,8 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Created by jojoldu@gmail.com on 2017. 6. 8.
@@ -56,8 +55,7 @@ public class CourseServiceTest {
         List<Course> savedCourses = hashTagRepository.findAllCourseByNameLike("강남");
 
         //then
-        assertThat(savedCourses.size(), is(1));
-        assertThat(savedCourses.get(0).getTitle(), is(title));
-
+        assertThat(savedCourses.size()).isEqualTo(1);
+        assertThat(savedCourses.get(0).getTitle()).isEqualTo(title);
     }
 }
