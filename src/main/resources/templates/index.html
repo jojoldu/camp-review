@@ -1,12 +1,237 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Camp Review</title>
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>CCR</title>
+
+    <meta name="keywords" content="Coding, Course, Review" />
+    <meta name="description" content="Coding Camp Review Community">
+    <meta name="author" content="jojoldu">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/image/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/image/apple-touch-icon.png">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="/css/build/vender.css">
+    <link rel="stylesheet" href="/css/build/service.css">
+
+    <!-- Head Libs -->
+    <!--<script src="../vendor/modernizr/modernizr.min.js"></script>-->
+
 </head>
 <body>
-    <div>
-        With Github: <a href="/login">click here</a>
+
+<div class="body">
+    <header id="header" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyStartAt': 155, 'stickySetTop': '-155px', 'stickyChangeLogo': false}">
+        <div class="header-body">
+            <div class="header-top">
+                <div class="container">
+
+                    <div class="top-menu-area">
+                        <a href="javascript:;">Links <i class="fa fa-caret-down"></i></a>
+                        <ul class="top-menu">
+                            <li><a href="/login">로그인</a></li>
+                            <li><a href="javascript:;">리뷰작성</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="header-container container">
+                <div class="header-row">
+                    <div class="header-column">
+                        <div class="header-logo">
+                            <a href="/">
+                                <img alt="Porto" width="111" height="51" src="/image/logo-shop.png">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="header-column">
+                        <div class="row">
+                            <div class="header-search">
+                                <a href="javascript:;" class="search-toggle"><i class="fa fa-search"></i></a>
+                                <div class="header-search-wrapper">
+                                    <input type="text" class="form-control" id="searchQuery" placeholder="Search..." required>
+                                    <select id="cat" name="cat">
+                                        <option value="ALL">전체</option>
+                                        <option value="CAMP_TITLE">학원명</option>
+                                        <option value="COURSE_TITLE">과정명</option>
+                                        <option value="COURSE_TAG">과정 태그</option>
+                                    </select>
+                                    <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-container header-nav">
+                <div class="container">
+                    <div class="header-nav-main">
+                        <nav>
+                            <ul class="nav nav-pills" id="mainNav">
+                                <li class="dropdown active">
+                                    <a class="dropdown-toggle" href="demo-shop-5.html">
+                                        Home
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-submenu">
+                                            <a href="demo-shop-1.html">Shop Demos</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="demo-shop-1.html" >Shop - Demo 1</a></li>
+                                                <li><a href="demo-shop-2.html" >Shop - Demo 2</a></li>
+                                                <li><a href="demo-shop-3.html" >Shop - Demo 3</a></li>
+                                                <li><a href="demo-shop-4.html" >Shop - Demo 4</a></li>
+                                                <li><a href="demo-shop-5.html" >Shop - Demo 5</a></li>
+                                                <li><a href="demo-shop-6.html" >Shop - Demo 6</a></li>
+                                                <li><a href="demo-shop-7.html" >Shop - Demo 7</a></li>
+                                                <li><a href="demo-shop-8.html" >Shop - Demo 8</a></li>
+                                                <li><a href="demo-shop-9.html" >Shop - Demo 9</a></li>
+                                                <li><a href="demo-shop-10.html" >Shop - Demo 10</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown-submenu">
+                                            <a href="demo-shop-1.html">Shop Demos <span class="tip tip-hot">Hot!</span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="demo-shop-11.html" >Shop - Demo 11</a></li>
+                                                <li><a href="demo-shop-12.html" >Shop - Demo 12</a></li>
+                                                <li><a href="demo-shop-13.html" >Shop - Demo 13</a></li>
+                                                <li><a href="demo-shop-14.html" >Shop - Demo 14</a></li>
+                                                <li><a href="demo-shop-15.html" >Shop - Demo 15</a></li>
+                                                <li><a href="demo-shop-16.html" >Shop - Demo 16</a></li>
+                                                <li><a href="demo-shop-17.html" >Shop - Demo 17</a></li>
+                                                <li><a href="demo-shop-18.html" >Shop - Demo 18</a></li>
+                                                <li><a href="demo-shop-19.html" >Shop - Demo 19</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-menu-overlay"></div>
+
+    <div class="banners-container">
+        <!--각종 팁 모음-->
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <a href="javascript:;" class="banner">
+                        <img src="../img/demos/shop/banners/shop5/banner1.png" alt="Banner">
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <a href="javascript:;" class="banner">
+                        <img src="../img/demos/shop/banners/shop5/banner2.png" alt="Banner">
+                    </a>
+                </div>
+
+                <div class="clearfix visible-sm visible-xs"></div>
+
+                <div class="col-xs-6 col-md-3">
+                    <a href="javascript:;" class="banner">
+                        <img src="../img/demos/shop/banners/shop5/banner3.png" alt="Banner">
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <a href="javascript:;" class="banner">
+                        <img src="../img/demos/shop/banners/shop5/banner4.png" alt="Banner">
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div class="container mb-lg">
+        <h2 class="slider-title">
+            <span class="inline-title">베스트 후기</span>
+            <span class="line"></span>
+        </h2>
+
+        <div class="owl-carousel owl-theme manual featured-products-carousel">
+            <div class="product">
+                <figure class="product-image-area">
+                    <a href="demo-shop-5-product-details.html" title="Product Name" class="product-image">
+                        <img src="../img/demos/shop/products/product1.jpg" alt="Product Name">
+                        <img src="../img/demos/shop/products/product1-2.jpg" alt="Product Name" class="product-hover-image">
+                    </a>
+
+                    <!--<div class="product-label"><span class="discount">-10%</span></div>-->
+                    <div class="product-label"><span class="new">Best</span></div>
+                </figure>
+                <div class="product-details-area">
+                    <h2 class="product-name"><a href="javascript:;" title="">교육센터1</a></h2>
+                    <div class="product-price-box">
+                        <span class="product-price">강좌1</span>
+                    </div>
+                    <div class="product-ratings">
+                        <div class="ratings-box">
+                            <div class="rating" style="width:60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mb-xs">
+        <h2 class="slider-title">
+            <span class="inline-title">신규 후기</span>
+            <span class="line"></span>
+        </h2>
+
+        <div class="owl-carousel owl-theme manual new-products-carousel hide-addtolinks">
+            <div class="product">
+                <figure class="product-image-area">
+                    <a href="demo-shop-5-product-details.html" title="Product Name" class="product-image">
+                        <img src="../img/demos/shop/products/product17.jpg" alt="Product Name">
+                    </a>
+                    <div class="product-label"><span class="new">New</span></div>
+                </figure>
+                <div class="product-details-area">
+                    <h2 class="product-name"><a href="demo-shop-5-product-details.html" title="Product Name">Noa Sheer Blouse</a></h2>
+                    <div class="product-ratings">
+                        <div class="ratings-box">
+                            <div class="rating" style="width:60%"></div>
+                        </div>
+                    </div>
+
+                    <div class="product-price-box">
+                        <span class="old-price">$99.00</span>
+                        <span class="product-price">$89.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer">
+        <div class="footer-copyright">
+            <div class="container">
+                <ul class="social-icons">
+                    <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                    <li><p><i class="fa fa-envelope-o"></i> <strong>Email:</strong><br> <a href="mailto:mail@example.com">mail@example.com</a></p></li>
+                </ul>
+                <p class="copyright-text">© Copyright 2017. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</div>
 </body>
 </html>
