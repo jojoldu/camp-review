@@ -5,11 +5,13 @@
  */
 
 const webpack = require('webpack');
-const entry = './index.js';
-const output = {
-    path: __dirname,
-    filename: 'woowahan.js'
-};
+const path = require('path');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const extractCommons = new webpack.optimize.CommonsChunkPlugin({
+    name: 'commons',
+    filename: 'common.js'
+});
+const extractCSS = new ExtractTextPlugin('[name].build.css');
 
 const uglifyJsPlugin = new webpack.optimize.UglifyJsPlugin({
     compressor: {
@@ -21,17 +23,30 @@ const uglifyJsPlugin = new webpack.optimize.UglifyJsPlugin({
     }
 });
 
-module.exports = {
-    debug: false,
-    devtool: 'cheap-module-eval-source-map',
-    entry: entry,
-    output: output,
-    module : {
-        loaders : [
-            { test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader' },
-            { test: /\.css$/, exclude: /node_modules/, loader: 'css-loader' },
-            { test: /\.hbs$/, loader: 'handlebars-loader', query: { helperDirs: [__dirname+'/template-helper'] }}
-        ]
+const defaultPath = 'src/main/resources/static';
+
+const config = {
+    context: path.resolve(__dirname, defaultPath),
+    entry: './app.js',
+    output: {
+        path: path.resolve(__dirname, defaultPath+'/build'),
+        filename: 'build.js'
     },
-    plugins: [ uglifyJsPlugin ]
+    module: {
+        rules: [{
+            test: /\.js$/,
+            include: path.resolve(__dirname, defaultPath),
+            use: [{
+                loader: 'babel-loader',
+                options: {
+                    presets: [
+                        ['es2015', {modules: false}]
+                    ]
+                }
+            }]
+        }]
+    }
 };
+
+module.exports = config;
+
