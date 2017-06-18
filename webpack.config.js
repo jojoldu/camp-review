@@ -53,16 +53,17 @@ const config = {
             },
             {
                 test: /\.(png|jpg|jpeg|gif)$/,
-                loader: "file-loader?name=css/build/image/[name].[ext]"
+                loader: "file-loader?name=/css/build/image/[name].[ext]"
             },
             {
                 test: /\.(svg|woff|woff2|ttf|eot)$/,
-                loader: "file-loader?name=css/build/fonts/[name].[ext]"
+                loader: "file-loader?name=/css/build/fonts/[name].[ext]"
             }
         ],
     },
     plugins: [
-        extractCSS
+        extractCSS,
+        new webpack.NamedModulesPlugin()
     ]
 };
 
