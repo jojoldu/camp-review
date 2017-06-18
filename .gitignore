@@ -3,6 +3,12 @@
 !gradle/wrapper/gradle-wrapper.jar
 src/main/generated
 src/main/resources/client.yml
+src/main/resources/static/css/build
+src/main/resources/static/js/build
+
+/node_modules
+*.log
+
 
 ### STS ###
 .apt_generated
