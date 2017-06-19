@@ -64,7 +64,18 @@ const config = {
     plugins: [
         extractCSS,
         new webpack.NamedModulesPlugin()
-    ]
+    ],
+    devtool: 'inline-source-map',
+    devServer: {
+        historyApiFallback: true,
+        compress: true,
+        publicPath: '/',
+        host: "0.0.0.0",
+        port: 3000,
+        proxy: {
+            "**": "http://localhost:8080"
+        }
+    },
 };
 
 module.exports = config;
