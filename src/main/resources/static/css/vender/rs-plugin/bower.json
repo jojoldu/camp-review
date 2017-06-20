@@ -1,0 +1,17 @@
+{
+  "name": "rs-plugin",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ueqt/bower-rs-plugin",
+  "authors": [
+    "ueqt <ueqtxu@gmail.com>"
+  ],
+  "description": "rs-plugin",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

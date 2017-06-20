@@ -27,13 +27,13 @@
   },
   "homepage": "https://github.com/jojoldu/camp-review#readme",
   "dependencies": {
-    "path": "^0.12.7",
-    "woowahan": "^0.2.0",
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
     "magnific-popup": "^1.1.0",
+    "owl.carousel": "^2.2.0",
+    "path": "^0.12.7",
     "simple-line-icons": "^2.4.1",
-    "owl.carousel": "^2.2.0"
+    "woowahan": "^0.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
