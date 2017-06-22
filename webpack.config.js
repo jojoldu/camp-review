@@ -9,21 +9,6 @@ const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const extractCSS = new ExtractTextPlugin('css/build/build.css');
 
-const extractCommons = new webpack.optimize.CommonsChunkPlugin({
-    name: 'commons',
-    filename: 'common.js'
-});
-
-const uglifyJsPlugin = new webpack.optimize.UglifyJsPlugin({
-    compressor: {
-        screw_ie8: true,
-        warnings: false
-    },
-    output: {
-        comments: false
-    }
-});
-
 const defaultPath = 'src/main/resources/static';
 
 const config = {
@@ -66,7 +51,8 @@ const config = {
     },
     plugins: [
         extractCSS,
-        new webpack.NamedModulesPlugin()
+        new webpack.NamedModulesPlugin(),
+        new webpack.optimize.OccurrenceOrderPlugin()
     ],
     devtool: 'inline-source-map',
     devServer: {
