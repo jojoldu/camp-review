@@ -6,7 +6,7 @@
 
 const webpack = require('webpack');
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const extractCSS = new ExtractTextPlugin('css/build/build.css');
 
 const extractCommons = new webpack.optimize.CommonsChunkPlugin({
@@ -49,7 +49,10 @@ const config = {
             },
             {
                 test: /\.css$/,
-                loader: extractCSS.extract(['css-loader'])
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: "css-loader"
+                })
             },
             {
                 test: /\.(png|jpg|jpeg|gif)$/,
