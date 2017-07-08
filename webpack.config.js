@@ -12,7 +12,7 @@ const defaultPath = 'src/main/resources/static';
 
 const config = {
     context: path.resolve(__dirname, defaultPath),
-    entry: './app.js',
+    entry: './js/app/app.js',
     output: {
         path: path.resolve(__dirname, defaultPath),
         filename: 'js/build/build.js'
@@ -45,6 +45,10 @@ const config = {
             {
                 test: /\.(svg|woff|woff2|ttf|eot)$/,
                 loader: "file-loader?name=/css/build/fonts/[name].[ext]"
+            },
+            {
+                test: /\.hbs/,
+                loader: "handlebars-loader"
             }
         ],
     },

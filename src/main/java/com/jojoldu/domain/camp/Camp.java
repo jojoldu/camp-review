@@ -58,4 +58,12 @@ public class Camp extends BaseEntity {
         addressList.add(address);
         address.setCamp(this);
     }
+
+    public void verifyCourse(Course course){
+        for (Course existCourse : courses) {
+            if(existCourse.getTitle().equals(course.getTitle())){
+
+            }
+        }
+    }
 }
