@@ -7,7 +7,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const extractCSS = new ExtractTextPlugin('css/build/build.css');
 
 const defaultPath = 'src/main/resources/static';
 
@@ -33,7 +32,7 @@ const config = {
                 }]
             },
             {
-                test: /\.css$/,
+                test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
                     use: "css-loader"
@@ -50,9 +49,7 @@ const config = {
         ],
     },
     plugins: [
-        extractCSS,
-        new webpack.NamedModulesPlugin(),
-        new webpack.optimize.OccurrenceOrderPlugin()
+        new ExtractTextPlugin('css/build/build.css')
     ],
     devtool: 'inline-source-map',
     devServer: {
