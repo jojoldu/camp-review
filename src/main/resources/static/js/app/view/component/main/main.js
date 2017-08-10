@@ -11,6 +11,5 @@ export default Woowahan.View.create('MainView', {
     template: Template,
 
     initialize() {
-        this.super();
     }
 });

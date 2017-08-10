@@ -1,23 +1,20 @@
 
-import Style from './app.scss';
+import './app.scss';
 import Woowahan from 'woowahan';
 import MainLayout from './view/layout/main-layout';
 import MainView from './view/component/main/main';
 
+//전역에서 jquery($) 사용가능 하도록 지원
 global.$ = global.jQuery = Woowahan.$;
 
 const app = new Woowahan();
 
 const components = {
     url: '/',
-    container: '#main-content',
+    container: '#main-layout',
     view: MainView,
-    layout: MainLayout,
-    pages: [
-    ]
+    layout: 'MainLayout'
 };
-
-app.use(Woowahan.Layout('#main-layout', MainLayout));
 
 const siteOption = {
     empty: page => {
