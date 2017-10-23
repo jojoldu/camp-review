@@ -2,6 +2,7 @@ package com.jojoldu.oauth;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jojoldu.oauth.pojo.Github;
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.stereotype.Component;
@@ -13,13 +14,10 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
+@AllArgsConstructor
 public class GithubParser {
 
     private ObjectMapper objectMapper;
-
-    public GithubParser(ObjectMapper objectMapper) {
-        this.objectMapper = objectMapper;
-    }
 
     public Github parse(Authentication authentication){
         OAuth2Authentication oAuth2Authentication = (OAuth2Authentication) authentication;

@@ -2,6 +2,7 @@ package com.jojoldu.oauth;
 
 import com.jojoldu.domain.member.Member;
 import com.jojoldu.domain.member.MemberRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,22 +17,16 @@ import java.util.Optional;
  */
 
 @Service
+@AllArgsConstructor
 public class GithubDetailsService implements UserDetailsService {
 
     private MemberRepository memberRepository;
 
-    public GithubDetailsService(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
-    }
-
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Optional<Member> optional = memberRepository.findByEmail(email);
+    public UserDetails loadUserByUsername(String email) {
+        Member member = memberRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("Not Found User"));
 
-        if (!optional.isPresent()) {
-            throw new UsernameNotFoundException("Not Found User");
-        }
-
-        return new GithubUserDetails(optional.get());
+        return new GithubUserDetails(member.getEmail());
     }
 }

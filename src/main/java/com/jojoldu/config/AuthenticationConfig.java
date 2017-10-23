@@ -1,6 +1,7 @@
 package com.jojoldu.config;
 
 import com.jojoldu.oauth.GithubDetailsService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -13,14 +14,10 @@ import org.springframework.security.config.annotation.authentication.configurers
  */
 
 @Configuration
+@AllArgsConstructor
 public class AuthenticationConfig extends GlobalAuthenticationConfigurerAdapter {
 
-    private final GithubDetailsService githubDetailsService;
-
-    @Autowired
-    public AuthenticationConfig(GithubDetailsService githubDetailsService) {
-        this.githubDetailsService = githubDetailsService;
-    }
+    private GithubDetailsService githubDetailsService;
 
     @Override
     public void init(AuthenticationManagerBuilder auth) throws Exception {

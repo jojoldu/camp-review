@@ -3,6 +3,7 @@ package com.jojoldu.web;
 import com.jojoldu.domain.member.MemberRepository;
 import com.jojoldu.oauth.GithubParser;
 import com.jojoldu.oauth.pojo.Github;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.stereotype.Controller;
@@ -16,12 +17,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 
 @Controller
+@AllArgsConstructor
 public class MainController {
 
-    @Autowired
     private MemberRepository memberRepository;
-
-    @Autowired
     private GithubParser githubParser;
 
     @GetMapping("/")

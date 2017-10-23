@@ -2,6 +2,7 @@ package com.jojoldu.domain.course.repository;
 
 import com.jojoldu.domain.course.Course;
 import com.jojoldu.domain.course.Teacher;
+import com.jojoldu.domain.course.type.CourseType;
 import com.jojoldu.domain.review.Review;
 import com.jojoldu.domain.review.ReviewRepository;
 import org.junit.After;
@@ -46,7 +47,7 @@ public class CourseRepositoryTest {
     public void Course조회하면_review가_조회된다() throws Exception {
         //given
         Course course = courseRepository.save(Course.builder()
-                .type(Course.Type.WEB)
+                .type(CourseType.WEB)
                 .title("자바웹캠프")
                 .description("자바 과정")
                 .build());

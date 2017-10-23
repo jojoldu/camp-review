@@ -28,7 +28,7 @@ public class Member extends BaseEntity {
     private Long id;
 
     @Column(nullable = false)
-    private String githubName;
+    private String name;
 
     @Column(nullable = false)
     private String email;
@@ -37,14 +37,14 @@ public class Member extends BaseEntity {
     private String avatarUrl;
 
     @Builder
-    public Member(String githubName, String email, String avatarUrl) {
-        this.githubName = githubName;
+    public Member(String name, String email, String avatarUrl) {
+        this.name = name;
         this.email = email;
         this.avatarUrl = avatarUrl;
     }
 
-    public void updateFromGithub(String githubName, String email, String avatarUrl){
-        this.githubName = githubName;
+    public void update(String name, String email, String avatarUrl){
+        this.name = name;
         this.email = email;
         this.avatarUrl = avatarUrl;
     }

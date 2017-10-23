@@ -3,6 +3,7 @@ package com.jojoldu.domain.course;
 import com.jojoldu.domain.course.repository.CourseRepository;
 import com.jojoldu.domain.hashtag.HashTag;
 import com.jojoldu.domain.hashtag.repository.HashTagRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,15 +16,11 @@ import java.util.List;
  */
 
 @Service
+@AllArgsConstructor
 public class CourseService {
 
     private CourseRepository courseRepository;
     private HashTagRepository hashTagRepository;
-
-    public CourseService(CourseRepository courseRepository, HashTagRepository hashTagRepository) {
-        this.courseRepository = courseRepository;
-        this.hashTagRepository = hashTagRepository;
-    }
 
     @Transactional
     public void saveCourseAndHashTag(Course course, List<String> hashTagNames){

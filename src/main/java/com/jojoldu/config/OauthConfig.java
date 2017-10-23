@@ -1,6 +1,7 @@
 package com.jojoldu.config;
 
 import com.jojoldu.oauth.CustomAuthenticationSuccessHandler;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties;
@@ -30,16 +31,11 @@ import javax.servlet.Filter;
 
 @Configuration
 @EnableOAuth2Client
+@AllArgsConstructor
 public class OauthConfig {
 
     private final OAuth2ClientContext oauth2ClientContext;
     private final CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
-
-    @Autowired
-    public OauthConfig(OAuth2ClientContext oauth2ClientContext, CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler) {
-        this.oauth2ClientContext = oauth2ClientContext;
-        this.customAuthenticationSuccessHandler = customAuthenticationSuccessHandler;
-    }
 
     @Bean
     public Filter ssoFilter() {
@@ -69,15 +65,5 @@ public class OauthConfig {
         registration.setFilter(filter);
         registration.setOrder(-100);
         return registration;
-    }
-
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer properties() {
-        YamlPropertiesFactoryBean yaml = new YamlPropertiesFactoryBean();
-        yaml.setResources(new ClassPathResource("client.yml"));
-
-        PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer = new PropertySourcesPlaceholderConfigurer();
-        propertySourcesPlaceholderConfigurer.setProperties(yaml.getObject());
-        return propertySourcesPlaceholderConfigurer;
     }
 }

@@ -5,7 +5,7 @@ src/main/generated
 src/main/resources/client.yml
 src/main/resources/static/css/build
 src/main/resources/static/js/build
-
+/out
 /node_modules
 *.log
 

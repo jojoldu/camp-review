@@ -3,6 +3,7 @@ package com.jojoldu.oauth;
 import com.jojoldu.domain.member.Member;
 import com.jojoldu.domain.member.MemberRepository;
 import com.jojoldu.oauth.pojo.Github;
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
@@ -21,24 +22,21 @@ import java.util.Optional;
  */
 
 @Component
+@AllArgsConstructor
 public class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 
     private MemberRepository memberRepository;
     private GithubParser githubParser;
-
-    public CustomAuthenticationSuccessHandler(MemberRepository memberRepository, GithubParser githubParser) {
-        this.memberRepository = memberRepository;
-        this.githubParser = githubParser;
-    }
 
     @Override
     @Transactional
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         Github github = githubParser.parse(authentication);
 
-        Optional<Member> optionalMember = memberRepository.findByEmail(github.getEmail());
-        if(optionalMember.isPresent()){
-            github.updateMember(optionalMember.get());
+        Optional<Member> optional = memberRepository.findByEmail(github.getEmail());
+        if(optional.isPresent()){
+            final Member member = optional.get();
+            member.update(github.getName(), github.getEmail(), github.getAvatarUrl());
         } else {
             memberRepository.save(github.createMember());
         }

@@ -1,6 +1,7 @@
 package com.jojoldu.domain.course;
 
 import com.jojoldu.domain.course.repository.CourseRepository;
+import com.jojoldu.domain.course.type.CourseType;
 import com.jojoldu.domain.hashtag.repository.HashTagRepository;
 import org.junit.After;
 import org.junit.Test;
@@ -45,7 +46,7 @@ public class CourseServiceTest {
         final String title = "자바 웹 캠프";
         Course course = Course.builder()
                 .title(title)
-                .type(Course.Type.WEB)
+                .type(CourseType.WEB)
                 .build();
 
         List<String> tagNames = Arrays.asList("강남", "자바", "웹개발", "스프링");

@@ -33,7 +33,7 @@ public class MemberTest {
     public void 자동으로_createDate와_updateDate를_추가한다() throws Exception {
         //given
         Member member = Member.builder()
-                .githubName("jojoldu")
+                .name("jojoldu")
                 .email("jojoldu@gmail.com")
                 .avatarUrl("http://jojoldu.tistory.com")
                 .build();

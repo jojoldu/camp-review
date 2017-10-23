@@ -1,6 +1,6 @@
 buildscript {
 	ext {
-		springBootVersion = '1.5.3.RELEASE'
+		springBootVersion = '1.5.8.RELEASE'
 	}
 	repositories {
 		jcenter()
@@ -15,6 +15,7 @@ plugins {
 }
 
 apply plugin: 'java'
+apply plugin: 'groovy'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
@@ -55,9 +56,11 @@ dependencies {
 	compile 'com.github.jojoldu:enum-mapper:0.1.8'
 
 	runtime('org.springframework.boot:spring-boot-devtools')
-	runtime('com.h2database:h2')
-	runtime('mysql:mysql-connector-java')
+	compile('com.h2database:h2')
+	compile('mysql:mysql-connector-java')
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile('io.rest-assured:rest-assured')
+	testCompile('net.bytebuddy:byte-buddy:1.6.4')
+	testCompile('org.spockframework:spock-core:1.1-groovy-2.4')
+	testCompile('org.spockframework:spock-spring:1.1-groovy-2.4')
 }

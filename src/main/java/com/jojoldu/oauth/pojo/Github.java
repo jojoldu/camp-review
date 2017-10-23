@@ -28,14 +28,14 @@ public class Github {
 
     public Member createMember() {
         return Member.builder()
-                .githubName(name)
+                .name(name)
                 .email(email)
                 .avatarUrl(avatarUrl)
                 .build();
     }
 
     public void updateMember(Member member){
-        member.updateFromGithub(
+        member.update(
                 name,
                 email,
                 avatarUrl

@@ -18,8 +18,8 @@ public class GithubUserDetails implements UserDetails {
 
     private String username;
 
-    public GithubUserDetails(Member member) {
-        username = member.getEmail();
+    public GithubUserDetails(String email) {
+        username = email;
     }
 
     @Override
