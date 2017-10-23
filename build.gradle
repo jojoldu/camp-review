@@ -54,6 +54,7 @@ dependencies {
 	compile("com.querydsl:querydsl-jpa")
 	compile('org.projectlombok:lombok')
 	compile 'com.github.jojoldu:enum-mapper:0.1.8'
+	compile group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
 
 	runtime('org.springframework.boot:spring-boot-devtools')
 	compile('com.h2database:h2')
